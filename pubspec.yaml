@@ -1,6 +1,6 @@
 name: sign
 description: Basic state management base for dart. Sign inspired QT framework signal-slot architecture.
-version: 0.0.1
+version: 0.0.2
 repository: "https://github.com/Mehmetyaz/sign"
 homepage: "https://github.com/Mehmetyaz/sign"
 

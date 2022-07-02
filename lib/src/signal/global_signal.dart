@@ -7,15 +7,19 @@ part of sign;
 class GlobalSignal<V> extends Signal<V> {
   ///
   GlobalSignal(V value) : super(value) {
+    registerSignal();
+  }
+  //
+  // @override
+  // Set<GlobalSlot> get slots => super.slots.cast<GlobalSlot>();
+
+  ///
+  void registerSignal() {
     global._registerSignal(this);
   }
 
-  @override
-  Set<GlobalSlot> get slots => super.slots.cast<GlobalSlot>();
-
   /// Dispose and unregister the signal from global signal controller.
-  void dispose() {
-    clearSlots();
+  void unregisterSignal() {
     global._unregisterSignal(this);
   }
 }

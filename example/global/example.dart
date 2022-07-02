@@ -12,10 +12,6 @@ void main() {
   Stream<int>.periodic(const Duration(seconds: 1), (c) => c).listen((event) {
     globalCounter.value = event;
   });
-
-  Future<void>.delayed(Duration(seconds: 3)).then((value) {
-    globalCounter.dispose();
-  });
 }
 
 class GlobalCountSlot extends GlobalSlot<int, GlobalCounter> {

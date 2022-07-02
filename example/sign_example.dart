@@ -1,27 +1,19 @@
 import 'package:sign/sign.dart';
 
 void main() async {
-  var slot = VoidSlot();
+  var slot = CounterSlot();
 
-  var counter = VoidSignal();
+  var counter = Counter();
 
   counter.addSlot(slot);
 
-  Stream<int>.periodic(Duration(seconds: 1)).listen((event) {
-    counter.value = null;
+  Stream<int>.periodic(
+    Duration(seconds: 1),
+    (computationCount) => computationCount,
+  ).listen((event) {
+    counter.value = event;
   });
 }
-
-class VoidSlot extends Slot<void> {
-  @override
-  void onValue(void value) {
-    print('VoidSlot');
-  }
-}
-
-// class VoidSignal extends Signal<void> {
-//   VoidSignal() : super(0);
-// }
 
 class CounterSlot extends Slot<int> {
   @override

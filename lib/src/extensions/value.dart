@@ -6,11 +6,11 @@ extension ToSignalExtension<T> on T {
   ///
   /// See also:
   ///  * [Signal]
-  Signal<T> toSignal() => Signal<T>(this);
+  Signal<T> get signal => Signal<T>(this);
 
   /// Converts the value to a global signal.
   ///
   /// See also:
   ///  * [GlobalSignal]
-  GlobalSignal<T> toGlobalSignal() => GlobalSignal<T>(this);
+  GlobalSignal<T> get globalSignal => GlobalSignal<T>(this);
 }

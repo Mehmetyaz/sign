@@ -52,7 +52,7 @@ class Signal<V> {
 }
 
 /// Generate signals that don't carry any value
-class VoidSignal extends Signal {
+class VoidSignal extends Signal<void> {
   /// Create a VoidSignal
   VoidSignal() : super(null);
 

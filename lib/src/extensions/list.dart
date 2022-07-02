@@ -3,7 +3,7 @@ part of sign;
 ///
 extension MultipleListenerOnList<T extends Signal> on List<T> {
   ///
-  MultiSignal get notifyAll => MultiSignal(this);
+  MultiSignal get multiSignal => MultiSignal(this);
 }
 
 ///
@@ -12,8 +12,8 @@ extension ListenableList<T> on List<T> {
   ///
   /// and notify only changed object
   ///
-  List<Signal<T>> get listeners => map<Signal<T>>((e) => e.toSignal()).toList();
+  List<Signal<T>> get signals => map<Signal<T>>((e) => e.signal).toList();
 
   /// Listen all changes and notify all changes
-  SignalList<T> get listenAll => SignalList<T>(this);
+  SignalList<T> get signalList => SignalList<T>(this);
 }
