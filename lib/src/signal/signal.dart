@@ -19,7 +19,7 @@ class Signal<V> {
   set value(V value) {
     if (value == _value) return;
     _value = value;
-    sign();
+    emit();
   }
 
   /// Slots
@@ -44,7 +44,7 @@ class Signal<V> {
   }
 
   /// Sign to all slots
-  void sign() {
+  void emit() {
     for (var slot in slots) {
       slot.onValue(value);
     }
@@ -58,6 +58,6 @@ class VoidSignal extends Signal<void> {
 
   @override
   set value(void value) {
-    sign();
+    emit();
   }
 }

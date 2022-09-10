@@ -47,7 +47,7 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
         target.value[at + i] = source[start + i];
       }
     }
-    target.sign();
+    target.emit();
   }
 
   /// Write to target from source in given range
@@ -63,7 +63,7 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
       target.value[index] = element;
       index++;
     }
-    target.sign();
+    target.emit();
   }
 
   @override
@@ -81,7 +81,7 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   void operator []=(int index, E val) {
     value[index] = val;
-    sign();
+    emit();
     return;
   }
 
@@ -89,14 +89,14 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   set first(E val) {
     value.first = val;
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   set last(E val) {
     value.last = val;
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
@@ -107,7 +107,7 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   set length(int newLength) {
     value.length = newLength;
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
@@ -130,14 +130,14 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   void add(E val) {
     value.add(val);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void addAll(Iterable<E> iterable) {
     value.addAll(iterable);
-    sign();
+    emit();
   }
 
   @override
@@ -146,14 +146,14 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   void sort([int Function(E a, E b)? compare]) {
     value.sort(compare);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void shuffle([Random? random]) {
     value.shuffle(random);
-    sign();
+    emit();
   }
 
   @override
@@ -176,35 +176,35 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   void clear() {
     value.clear();
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void insert(int index, E element) {
     value.insert(index, element);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void insertAll(int index, Iterable<E> iterable) {
     value.insertAll(index, iterable);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void setAll(int index, Iterable<E> iterable) {
     value.setAll(index, iterable);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   bool remove(Object? val) {
     var r = value.remove(val);
-    sign();
+    emit();
     return r;
   }
 
@@ -212,7 +212,7 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   E removeAt(int index) {
     var r = value.removeAt(index);
-    sign();
+    emit();
     return r;
   }
 
@@ -220,7 +220,7 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   E removeLast() {
     var r = value.removeLast();
-    sign();
+    emit();
     return r;
   }
 
@@ -228,21 +228,21 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   void removeWhere(bool Function(E element) test) {
     value.removeWhere(test);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void retainWhere(bool Function(E element) test) {
     value.retainWhere(test);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   List<E> operator +(List<E> other) {
     var r = value + other;
-    sign();
+    emit();
     return r;
   }
 
@@ -257,28 +257,28 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   @override
   void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0]) {
     value.setRange(start, end, iterable, skipCount);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void removeRange(int start, int end) {
     value.removeRange(start, end);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void fillRange(int start, int end, [E? fillValue]) {
     value.fillRange(start, end, fillValue);
-    sign();
+    emit();
   }
 
   /// see dart:core documentation
   @override
   void replaceRange(int start, int end, Iterable<E> replacements) {
     value.replaceRange(start, end, replacements);
-    sign();
+    emit();
   }
 
   @override

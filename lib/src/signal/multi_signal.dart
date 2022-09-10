@@ -35,6 +35,6 @@ class MultiSignal extends Signal<void> implements Slot<void> {
 
   @override
   void onValue(void value) {
-    sign();
+    emit();
   }
 }

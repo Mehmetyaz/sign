@@ -19,7 +19,7 @@ class GlobalSignalController {
 
   /// Sign signals by type
   void sign<T extends GlobalSignal>(dynamic value) {
-    _signals[T]?.sign();
+    _signals[T]?.emit();
   }
 
   void _registerSignal(GlobalSignal signal) {

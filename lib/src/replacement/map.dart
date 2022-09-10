@@ -49,7 +49,7 @@ class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
   @override
   void operator []=(K key, V val) {
     value[key] = val;
-    sign();
+    emit();
   }
 
   /// see dart core documentation
@@ -65,14 +65,14 @@ class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
   @override
   void addEntries(Iterable<MapEntry<K, V>> newEntries) {
     value.addEntries(newEntries);
-    sign();
+    emit();
   }
 
   /// see dart core documentation
   @override
   V update(K key, V Function(V value) update, {V Function()? ifAbsent}) {
     var r = value.update(key, update, ifAbsent: ifAbsent);
-    sign();
+    emit();
     return r;
   }
 
@@ -80,21 +80,21 @@ class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
   @override
   void updateAll(V Function(K key, V value) update) {
     value.updateAll(update);
-    sign();
+    emit();
   }
 
   /// see dart core documentation
   @override
   void removeWhere(bool Function(K key, V value) test) {
     value.removeWhere(test);
-    sign();
+    emit();
   }
 
   /// see dart core documentation
   @override
   V putIfAbsent(K key, V Function() ifAbsent) {
     var r = value.putIfAbsent(key, ifAbsent);
-    sign();
+    emit();
     return r;
   }
 
@@ -102,14 +102,14 @@ class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
   @override
   void addAll(Map<K, V> other) {
     value.addAll(other);
-    sign();
+    emit();
   }
 
   /// see dart core documentation
   @override
   V? remove(Object? key) {
     var r = value.remove(key);
-    sign();
+    emit();
     return r;
   }
 
@@ -117,7 +117,7 @@ class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
   @override
   void clear() {
     value.clear();
-    sign();
+    emit();
   }
 
   @override

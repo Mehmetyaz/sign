@@ -64,18 +64,17 @@ void main() {
 
       expect(signalCount, 0);
 
-      signal.sign();
+      signal.emit();
 
       expect(signalCount, 1);
 
-      signal.sign();
+      signal.emit();
 
       expect(signalCount, 2);
 
-
       signal.removeSlot(slot);
 
-      signal.sign();
+      signal.emit();
 
       expect(signalCount, 2);
     });
