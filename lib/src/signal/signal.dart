@@ -5,6 +5,12 @@ class Signal<V> {
   /// Create with value
   Signal(this._value);
 
+  /// On change listener
+  void Function(V value) get onChange => (V value) {
+    _value = value;
+    emit();
+  };
+
   /// Listen any changes this and [notifiers] any changes
   Signal combineWith(List<Signal> signals) => MultiSignal(signals..add(this));
 
