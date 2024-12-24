@@ -4,10 +4,8 @@ version: 0.0.3
 repository: "https://github.com/Mehmetyaz/sign"
 homepage: "https://github.com/Mehmetyaz/sign"
 
-
-
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: ^3.7.0-267.0.dev
 
 dev_dependencies:
   lints: ^2.0.0

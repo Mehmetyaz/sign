@@ -15,7 +15,7 @@ void main() async {
   });
 }
 
-class CounterSlot extends Slot<int> {
+class CounterSlot with Slot<int> {
   @override
   void onValue(int value) {
     print('CounterSlot: $value');

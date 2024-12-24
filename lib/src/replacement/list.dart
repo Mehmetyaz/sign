@@ -58,7 +58,7 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
     var targetLength = target.length;
     for (var element in source) {
       if (index == targetLength) {
-        throw IndexError(targetLength, target);
+        throw IndexError.withLength(targetLength, index);
       }
       target.value[index] = element;
       index++;

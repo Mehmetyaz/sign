@@ -1,13 +1,13 @@
 part of sign;
 
 /// Listen signals
-abstract class Slot<T> {
+mixin Slot<T> {
   /// On signal
   void onValue(T value);
 }
 
 /// Slot with handler
-class SlotWithHandler<T> extends Slot<T> {
+class SlotWithHandler<T> with Slot<T> {
   ///
   SlotWithHandler(this.handler);
 
