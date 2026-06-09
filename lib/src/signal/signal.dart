@@ -14,6 +14,13 @@ class Signal<V> {
   /// Listen any changes this and [notifiers] any changes
   Signal combineWith(List<Signal> signals) => MultiSignal(signals..add(this));
 
+  /// Creates a [ComputedSignal] that depends on this signal and optionally [also].
+  ComputedSignal<R> computed<R>(
+    R Function() compute, {
+    Iterable<Signal> also = const [],
+  }) =>
+      ComputedSignal._([this, ...also], compute);
+
   V _value;
 
   /// Your value.

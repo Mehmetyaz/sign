@@ -11,6 +11,7 @@ part 'replacement/stream.dart';
 part 'signal/signal.dart';
 part 'signal/global_signal.dart';
 part 'signal/multi_signal.dart';
+part 'signal/computed_signal.dart';
 
 part 'slot/slot.dart';
 part 'slot/global_slot.dart';

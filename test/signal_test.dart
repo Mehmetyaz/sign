@@ -107,6 +107,44 @@ void main() {
     expect(signalCount, 4);
   });
 
+  test('computed single', () {
+    var a = 1.signal;
+    var computed = a.computed(() => a.value * 2);
+    var values = <int>[];
+
+    computed.addSlot(SlotWithHandler<int>((v) => values.add(v)));
+
+    expect(computed.value, 2);
+    a.value = 3;
+    expect(computed.value, 6);
+    expect(values, [6]);
+  });
+
+  test('computed', () {
+    var a = 1.signal;
+    var b = 2.signal;
+    var computed = a.computed(() => a.value + b.value, also: [b]);
+    var values = <int>[];
+
+    computed.addSlot(
+      SlotWithHandler<int>((v) {
+        values.add(v);
+        expect(v, computed.value);
+      }),
+    );
+
+    expect(computed.value, 3);
+    expect(values, isEmpty);
+
+    a.value = 5;
+    expect(computed.value, 7);
+    expect(values, [7]);
+
+    b.value = 10;
+    expect(computed.value, 15);
+    expect(values, [7, 15]);
+  });
+
   group('global', () {
     test('basic', () {
       var globalSignal = 0.globalSignal;
