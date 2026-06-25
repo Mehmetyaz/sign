@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Slot for multiple signals.
 ///

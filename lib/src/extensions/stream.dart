@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// help to convert stream to change notifier
 extension StreamNotifier<T> on Stream<T> {

@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 ///
 class Signal<V> {
@@ -18,8 +18,7 @@ class Signal<V> {
   ComputedSignal<R> computed<R>(
     R Function() compute, {
     Iterable<Signal> also = const [],
-  }) =>
-      ComputedSignal._([this, ...also], compute);
+  }) => ComputedSignal._([this, ...also], compute);
 
   V _value;
 

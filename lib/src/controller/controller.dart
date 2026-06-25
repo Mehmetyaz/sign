@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Global signal controller instance
 final GlobalSignalController global = GlobalSignalController();
@@ -24,10 +24,12 @@ class GlobalSignalController {
 
   void _registerSignal(GlobalSignal signal) {
     if (_signals[signal.runtimeType] != null) {
-      throw Exception('Signal already registered. \n'
-          'Global signals can only be registered once.\n'
-          'Don\'t create the same signal instance twice or dispose '
-          'first before creating it again.');
+      throw Exception(
+        'Signal already registered. \n'
+        'Global signals can only be registered once.\n'
+        'Don\'t create the same signal instance twice or dispose '
+        'first before creating it again.',
+      );
     }
     if (_idleSlots[signal.runtimeType] != null) {
       signal.slots.addAll((_idleSlots[signal.runtimeType] ?? []));

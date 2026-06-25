@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 ///
 extension MultipleListenerOnMap<K extends Object, V extends Signal>

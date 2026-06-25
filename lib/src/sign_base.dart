@@ -1,4 +1,4 @@
-library sign;
+library;
 
 import 'dart:async';
 import 'dart:collection';

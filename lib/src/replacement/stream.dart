@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Signal converts Stream to Signal
 /// start listening on construct
@@ -24,7 +24,7 @@ class StreamSignal<T> extends Signal<T> {
 ///
 class SignalStreamNonNullable<T> extends StreamSignal<T> {
   ///
-  SignalStreamNonNullable(Stream<T> stream, T value) : super(stream, value);
+  SignalStreamNonNullable(super.stream, super.value);
 }
 
 ///

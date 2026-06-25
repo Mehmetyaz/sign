@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Listen signals
 mixin Slot<T> {

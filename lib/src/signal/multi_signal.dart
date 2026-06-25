@@ -1,11 +1,11 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Handle multiple signals and sign to slots.
 class MultiSignal extends Signal<void> implements Slot<void> {
   /// Create with signals
   MultiSignal(Iterable<Signal> signals, {bool growable = true})
-      : _signals = List.from(signals, growable: growable),
-        super(null) {
+    : _signals = List.from(signals, growable: growable),
+      super(null) {
     for (var signal in signals) {
       signal.addSlot(this);
     }

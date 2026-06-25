@@ -1,11 +1,11 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Copy of dart:core Map
 ///
 /// But this Map notify any changes
 class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
   ///
-  SignalMap(Map<K, V> value) : super(value);
+  SignalMap(super.value);
 
   /// see dart core documentation
   factory SignalMap.from(Map other) => SignalMap(LinkedHashMap.from(other));
@@ -18,11 +18,13 @@ class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
   factory SignalMap.identity() => SignalMap(LinkedHashMap<K, V>.identity());
 
   /// see dart core documentation
-  factory SignalMap.fromIterable(Iterable iterable,
-          {K Function(dynamic element)? key,
-          V Function(dynamic element)? value}) =>
-      SignalMap(
-          LinkedHashMap<K, V>.fromIterable(iterable, key: key, value: value));
+  factory SignalMap.fromIterable(
+    Iterable iterable, {
+    K Function(dynamic element)? key,
+    V Function(dynamic element)? value,
+  }) => SignalMap(
+    LinkedHashMap<K, V>.fromIterable(iterable, key: key, value: value),
+  );
 
   /// see dart core documentation
   factory SignalMap.fromIterables(Iterable<K> keys, Iterable<V> values) =>
@@ -58,8 +60,8 @@ class SignalMap<K, V> extends Signal<Map<K, V>> implements MapBase<K, V> {
 
   @override
   Map<K2, V2> map<K2, V2>(
-          MapEntry<K2, V2> Function(K key, V value) transform) =>
-      value.map<K2, V2>(transform);
+    MapEntry<K2, V2> Function(K key, V value) transform,
+  ) => value.map<K2, V2>(transform);
 
   /// see dart core documentation
   @override

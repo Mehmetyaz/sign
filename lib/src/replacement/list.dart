@@ -1,11 +1,11 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Copy of dart:core List
 ///
 /// But this list notify any changes
 class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
   ///
-  SignalList(List<E> list) : super(list);
+  SignalList(super.list);
 
   /// see dart:core documentation
   factory SignalList.filled(int length, E fill, {bool growable = false}) =>
@@ -24,19 +24,29 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
       SignalList(List.of(elements, growable: growable));
 
   /// see dart:core documentation
-  factory SignalList.generate(int length, E Function(int index) generator,
-          {bool growable = true}) =>
-      SignalList(List.generate(length, generator, growable: growable));
+  factory SignalList.generate(
+    int length,
+    E Function(int index) generator, {
+    bool growable = true,
+  }) => SignalList(List.generate(length, generator, growable: growable));
 
   /// Copy source items in given range to target
-  static void copyRange<T>(SignalList<T> target, int at, List<T> source,
-      [int? start, int? end]) {
+  static void copyRange<T>(
+    SignalList<T> target,
+    int at,
+    List<T> source, [
+    int? start,
+    int? end,
+  ]) {
     start ??= 0;
     end = RangeError.checkValidRange(start, end, source.length);
     var length = end - start;
     if (target.length < at + length) {
-      throw ArgumentError.value(target, 'target',
-          'Not big enough to hold $length elements at position $at');
+      throw ArgumentError.value(
+        target,
+        'target',
+        'Not big enough to hold $length elements at position $at',
+      );
     }
     if (!identical(source, target) || start >= at) {
       for (var i = 0; i < length; i++) {
@@ -52,7 +62,10 @@ class SignalList<E> extends Signal<List<E>> implements ListBase<E> {
 
   /// Write to target from source in given range
   static void writeIterable<T>(
-      SignalList<T> target, int at, Iterable<T> source) {
+    SignalList<T> target,
+    int at,
+    Iterable<T> source,
+  ) {
     RangeError.checkValueInInterval(at, 0, target.length, 'at');
     var index = at;
     var targetLength = target.length;

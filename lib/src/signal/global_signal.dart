@@ -1,4 +1,4 @@
-part of sign;
+part of '../sign_base.dart';
 
 /// Global signal is a signal that sign to all same type generic global slots.
 /// Global signal stored by generic types. And can be create only once.
@@ -6,7 +6,7 @@ part of sign;
 /// If you want to create a new instance dispose the old before creating new.
 class GlobalSignal<V> extends Signal<V> {
   ///
-  GlobalSignal(V value) : super(value) {
+  GlobalSignal(super.value) {
     registerSignal();
   }
   //
