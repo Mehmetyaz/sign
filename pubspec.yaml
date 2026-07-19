@@ -5,7 +5,7 @@ repository: "https://github.com/Mehmetyaz/sign"
 homepage: "https://github.com/Mehmetyaz/sign"
 
 environment:
-  sdk: ^3.14.0-41.0.dev
+  sdk: ^3.12.2
 
 dev_dependencies:
   lints: ^6.0.0
