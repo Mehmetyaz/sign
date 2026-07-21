@@ -1,4 +1,5 @@
 name: sign
+resolution: workspace
 description: Basic state management base for dart. Sign inspired QT framework signal-slot architecture.
 version: 0.0.3
 repository: "https://github.com/Mehmetyaz/sign"
